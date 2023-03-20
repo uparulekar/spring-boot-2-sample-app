@@ -1,6 +1,6 @@
 # Dockerized Spring boot 2 application
 
-![Docker plus Spring Boot plus Codefresh](docker-spring-boot-codefresh.jpg)
+![Docker plus Spring Boot plus Codefresh](docker-spring-boot-codefresh.jpg) 
 
 This is an example Java application that uses Spring Boot 2, Maven and Docker.
 It is compiled using Codefresh.
