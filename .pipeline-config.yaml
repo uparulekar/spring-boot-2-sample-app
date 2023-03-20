@@ -35,7 +35,19 @@ containerize:
     fi
 
     mvn package
-    docker build . -t my-spring-boot-sample
+    IMAGE=my-spring-boot-sample:1
+    docker build . -t "${IMAGE}"
+    docker push "${IMAGE}"
+    
+    DIGEST="$(docker inspect --format='{{index .RepoDigests 0}}' "${IMAGE}" | awk -F@ '{print $2}')"
+    
+    save_artifact app-image \
+      type=image \
+      "name=${IMAGE}" \
+      "digest=${DIGEST}" \
+      "tags=1"
+    
+    
 
 deploy:
   image: icr.io/continuous-delivery/pipeline/pipeline-base-image:2.19@sha256:482d28e51d5acc65471b366bbdcabc97f69e49da933337a7c42f45907cd63173
