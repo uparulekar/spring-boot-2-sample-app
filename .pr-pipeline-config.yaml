@@ -1,0 +1,15 @@
+version: '1'
+
+setup:
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-image
+  script: |
+    #!/usr/bin/env bash
+    # set -e -o pipefail
+    # source ./ci/common/setup.sh
+
+test:
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-image
+  script: |
+    #!/usr/bin/env bash
+    # set -e -o pipefail
+    # source ./ci/common/test.sh
