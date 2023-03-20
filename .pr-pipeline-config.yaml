@@ -13,3 +13,11 @@ test:
     #!/usr/bin/env bash
     # set -e -o pipefail
     # source ./ci/common/test.sh
+
+compliance-checks:
+  dind: true
+  abort_on_failure: true
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-image
+  script: |
+    #!/usr/bin/env bash
+    source ./scripts/compliance-checks.sh
